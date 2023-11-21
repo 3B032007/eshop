@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('Products', ProductController::class)->only(['index', 'show', 'store','update','destroy']);
+
 Route::resource('Products', ProductController::class);
 
 //product.index URL:/Products
