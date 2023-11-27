@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,17 +18,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::resource('Products', ProductController::class)->only(['index', 'show', 'store','update','destroy']);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('Products',[ProductController::class,'index'])->name("products.index");
-Route::get('Products/{Product}',[ProductController::class,'show'])->name("products.show");
-Route::get('Products/create',[ProductController::class,'create'])->name("products.create");
-Route::post('Products',[ProductController::class,'store'])->name("products.store");
-Route::get('Products/{Product}/edit',[ProductController::class,'edit'])->name("products.edit");
-Route::patch('Products/{Product}',[ProductController::class,'update'])->name("products.update");
-Route::delete('Products/{Product}',[ProductController::class,'destroy'])->name("products.destroy");
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-Route::resource('Products', ProductController::class);
+require __DIR__.'/auth.php';
 
 //product.index URL:/Products
 //              HTTP方法:GET
@@ -59,7 +59,6 @@ Route::resource('Products', ProductController::class);
 //              串接的控制器&方法:ProductController@destroy
 
 
-
 //上述七個Products路由應該有的作用
 //product.index    顯示資源清單。
 
@@ -74,38 +73,3 @@ Route::resource('Products', ProductController::class);
 //product.update   更新儲存中的指定資源。
 
 //product.destroy  顯示資源清單。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
