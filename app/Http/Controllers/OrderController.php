@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Order;
+use App\Models\OrderItem;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 use Illuminate\Support\Facades\Auth;
@@ -45,9 +46,19 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Order $order)
+    public function show($order_id)
     {
         //
+//        $user_id = Auth::id();
+//        $order_id = $order;
+        $orderItems = OrderItem::orderBy('id', 'ASC')->where('order_id',$order_id)->get();
+
+
+        $data = [
+            'orderItems' => $orderItems,
+        ];
+
+        return view('orders.show', $data);
     }
 
     /**
