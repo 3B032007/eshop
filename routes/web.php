@@ -2,6 +2,7 @@
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +41,15 @@ Route::get('Products/{Product}/edit',[ProductController::class,'edit'])->name("p
 Route::patch('Products/{Product}',[ProductController::class,'update'])->name("products.update");
 Route::delete('Products/{Product}',[ProductController::class,'destroy'])->name("products.destroy");
 
-Route::resource('Products', ProductController::class);
+Route::get('CartItems',[CartitemController::class,'index'])->name("cart_items.index");
+Route::get('CartItems/{CartItem}',[CartitemController::class,'show'])->name("cart_items.show");
+Route::get('CartItems/create',[CartitemController::class,'create'])->name("cart_items.create");
+Route::post('CartItems',[CartitemController::class,'store'])->name("cart_items.store");
+Route::get('CartItems/{CartItem}/edit',[CartitemController::class,'edit'])->name("cart_items.edit");
+Route::patch('CartItems/{CartItem}',[CartitemController::class,'update'])->name("cart_items.update");
+Route::delete('CartItems/{CartItem}',[CartitemController::class,'destroy'])->name("cart_items.destroy");
+
+Route::resource('CartItems', CartItemController::class);
 //product.index URL:/Products
 //              HTTP方法:GET
 //              串接的控制器&方法:ProductController@index
