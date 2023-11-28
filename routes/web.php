@@ -3,6 +3,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartItemController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +49,14 @@ Route::post('CartItems',[CartitemController::class,'store'])->name("cart_items.s
 Route::get('CartItems/{CartItem}/edit',[CartitemController::class,'edit'])->name("cart_items.edit");
 Route::patch('CartItems/{CartItem}',[CartitemController::class,'update'])->name("cart_items.update");
 Route::delete('CartItems/{CartItem}',[CartitemController::class,'destroy'])->name("cart_items.destroy");
+
+Route::get('Orders',[OrderController::class,'index'])->name("orders.index");
+Route::get('Orders/{Order}',[OrderController::class,'show'])->name("orders.show");
+Route::get('Orders/create',[OrderController::class,'create'])->name("orders.create");
+Route::post('Orders',[OrderController::class,'store'])->name("orders.store");
+Route::get('Orders/{Order}/edit',[OrderController::class,'edit'])->name("orders.edit");
+Route::patch('Orders/{Order}',[OrderController::class,'update'])->name("orders.update");
+Route::delete('Orders/{Order}',[OrderController::class,'destroy'])->name("orders.destroy");
 
 Route::resource('CartItems', CartItemController::class);
 //product.index URL:/Products
