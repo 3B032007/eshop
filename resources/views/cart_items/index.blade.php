@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     @foreach($cartItems as $cartItem)
-                        產品id：{{$cartItem->id}}
+                        產品id：{{$cartItem->id}}<br>
                     @endforeach
                 </div>
             </div>
