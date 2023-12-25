@@ -34,31 +34,31 @@ require __DIR__.'/auth.php';
 
 //Route::resource('Products', ProductController::class)->only(['index', 'show', 'store','update','destroy']);
 
-Route::get('Products',[ProductController::class,'index'])->name("products.index");
-Route::get('Products/{Product}',[ProductController::class,'show'])->name("products.show");
-Route::get('Products/create',[ProductController::class,'create'])->name("products.create");
-Route::post('Products',[ProductController::class,'store'])->name("products.store");
-Route::get('Products/{Product}/edit',[ProductController::class,'edit'])->name("products.edit");
-Route::patch('Products/{Product}',[ProductController::class,'update'])->name("products.update");
-Route::delete('Products/{Product}',[ProductController::class,'destroy'])->name("products.destroy");
+Route::get('products',[ProductController::class,'index'])->name("products.index");
+Route::get('products/{product}',[ProductController::class,'show'])->name("products.show");
+Route::get('products/create',[ProductController::class,'create'])->name("products.create");
+Route::post('products',[ProductController::class,'store'])->name("products.store");
+Route::get('products/{product}/edit',[ProductController::class,'edit'])->name("products.edit");
+Route::patch('products/{product}',[ProductController::class,'update'])->name("products.update");
+Route::delete('products/{product}',[ProductController::class,'destroy'])->name("products.destroy");
 
-Route::get('CartItems',[CartitemController::class,'index'])->name("cart_items.index");
-Route::get('CartItems/{CartItem}',[CartitemController::class,'show'])->name("cart_items.show");
-Route::get('CartItems/create',[CartitemController::class,'create'])->name("cart_items.create");
-Route::post('CartItems',[CartitemController::class,'store'])->name("cart_items.store");
-Route::get('CartItems/{CartItem}/edit',[CartitemController::class,'edit'])->name("cart_items.edit");
-Route::patch('CartItems/{CartItem}',[CartitemController::class,'update'])->name("cart_items.update");
-Route::delete('CartItems/{CartItem}',[CartitemController::class,'destroy'])->name("cart_items.destroy");
+Route::get('cartItems',[CartitemController::class,'index'])->name("cart_items.index");
+Route::get('cartItems/{cartItem}',[CartitemController::class,'show'])->name("cart_items.show");
+Route::get('cartItems/create',[CartitemController::class,'create'])->name("cart_items.create");
+Route::post('cartItems',[CartitemController::class,'store'])->name("cart_items.store");
+Route::get('cartItems/{cartItem}/edit',[CartitemController::class,'edit'])->name("cart_items.edit");
+Route::patch('cartItems/{cartItem}',[CartitemController::class,'update'])->name("cart_items.update");
+Route::delete('cartItems/{cartItem}',[CartitemController::class,'destroy'])->name("cart_items.destroy");
 
-Route::get('Orders',[OrderController::class,'index'])->name("orders.index");
-Route::get('Orders/{Order}',[OrderController::class,'show'])->name("orders.show");
-Route::get('Orders/create',[OrderController::class,'create'])->name("orders.create");
-Route::post('Orders',[OrderController::class,'store'])->name("orders.store");
-Route::get('Orders/{Order}/edit',[OrderController::class,'edit'])->name("orders.edit");
-Route::patch('Orders/{Order}',[OrderController::class,'update'])->name("orders.update");
-Route::delete('Orders/{Order}',[OrderController::class,'destroy'])->name("orders.destroy");
+Route::get('orders',[OrderController::class,'index'])->name("orders.index");
+Route::get('orders/{order}',[OrderController::class,'show'])->name("orders.show");
+Route::get('orders/create',[OrderController::class,'create'])->name("orders.create");
+Route::post('orders',[OrderController::class,'store'])->name("orders.store");
+Route::get('orders/{order}/edit',[OrderController::class,'edit'])->name("orders.edit");
+Route::patch('orders/{order}',[OrderController::class,'update'])->name("orders.update");
+Route::delete('orders/{order}',[OrderController::class,'destroy'])->name("orders.destroy");
 
-Route::resource('CartItems', CartItemController::class);
+Route::resource('cartItems', CartItemController::class);
 //product.index URL:/Products
 //              HTTP方法:GET
 //              串接的控制器&方法:ProductController@index
