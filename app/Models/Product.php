@@ -15,12 +15,12 @@ class Product extends Model
         'name',
     ];
 
-    public function Category(): BelongsTo
+    public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
 
-    public function CartItem(): HasMany
+    public function cartItems(): HasMany
     {
         return $this->hasMany(CartItem::class);
     }

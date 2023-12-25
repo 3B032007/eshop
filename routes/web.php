@@ -42,13 +42,13 @@ Route::get('products/{product}/edit',[ProductController::class,'edit'])->name("p
 Route::patch('products/{product}',[ProductController::class,'update'])->name("products.update");
 Route::delete('products/{product}',[ProductController::class,'destroy'])->name("products.destroy");
 
-Route::get('cartItems',[CartitemController::class,'index'])->name("cart_items.index");
-Route::get('cartItems/{cartItem}',[CartitemController::class,'show'])->name("cart_items.show");
-Route::get('cartItems/create',[CartitemController::class,'create'])->name("cart_items.create");
-Route::post('cartItems',[CartitemController::class,'store'])->name("cart_items.store");
-Route::get('cartItems/{cartItem}/edit',[CartitemController::class,'edit'])->name("cart_items.edit");
-Route::patch('cartItems/{cartItem}',[CartitemController::class,'update'])->name("cart_items.update");
-Route::delete('cartItems/{cartItem}',[CartitemController::class,'destroy'])->name("cart_items.destroy");
+Route::get('cart_items',[CartitemController::class,'index'])->name("cart_items.index");
+Route::get('cart_items/{cart_item}',[CartitemController::class,'show'])->name("cart_items.show");
+Route::get('cart_items/create',[CartitemController::class,'create'])->name("cart_items.create");
+Route::post('cart_items',[CartitemController::class,'store'])->name("cart_items.store");
+Route::get('cart_items/{cart_item}/edit',[CartitemController::class,'edit'])->name("cart_items.edit");
+Route::patch('cart_items/{cart_item}',[CartitemController::class,'update'])->name("cart_items.update");
+Route::delete('cart_items/{cart_item}',[CartitemController::class,'destroy'])->name("cart_items.destroy");
 
 Route::get('orders',[OrderController::class,'index'])->name("orders.index");
 Route::get('orders/{order}',[OrderController::class,'show'])->name("orders.show");
@@ -58,7 +58,7 @@ Route::get('orders/{order}/edit',[OrderController::class,'edit'])->name("orders.
 Route::patch('orders/{order}',[OrderController::class,'update'])->name("orders.update");
 Route::delete('orders/{order}',[OrderController::class,'destroy'])->name("orders.destroy");
 
-Route::resource('cartItems', CartItemController::class);
+//Route::resource('cartItems', CartItemController::class);
 //product.index URL:/Products
 //              HTTP方法:GET
 //              串接的控制器&方法:ProductController@index
@@ -89,16 +89,16 @@ Route::resource('cartItems', CartItemController::class);
 
 
 //上述七個Products路由應該有的作用
-//product.index    顯示資源清單。
+//product.index    顯示所有商品。
 
-//product.show     顯示指定資源。
+//product.show     顯示某一個商品。
 
-//product.create   顯示用於建立新資源的表單。
+//product.create   顯示用於建立新商品的表單。
 
-//product.store    將新建立的資源儲存在儲存庫中。
+//product.store    將新建立的商品儲存在儲存庫中。
 
-//product.edit     顯示用於編輯指定資源的表單。
+//product.edit     顯示用於編輯指定商品的表單。
 
-//product.update   更新儲存中的指定資源。
+//product.update   更新儲存中的指定商品。
 
-//product.destroy  顯示資源清單。
+//product.destroy  刪除商品。

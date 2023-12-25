@@ -10,8 +10,9 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     訂單內容<br>
-                    @foreach($orderItems as $orderItem)
+                    @foreach($order -> orderItems as $orderItem)
                         產品id：{{$orderItem->id}}<br>
+                        產品名稱：{{$orderItem->product->name}}<br>
                     @endforeach
                 </div>
             </div>

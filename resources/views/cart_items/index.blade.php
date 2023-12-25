@@ -11,6 +11,7 @@
                 <div class="p-6 text-gray-900">
                     @foreach($cartItems as $cartItem)
                         產品id：{{$cartItem->id}}<br>
+                        產品名稱：{{$cartItem->product->name}}<br>
                     @endforeach
                 </div>
             </div>

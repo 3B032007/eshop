@@ -52,11 +52,11 @@ class OrderController extends Controller
         //
 //        $user_id = Auth::id();
 //        $order_id = $order;
-        $orderItems = OrderItem::orderBy('id', 'ASC')->where('order_id',$order_id)->get();
-
+//        $orderItems = OrderItem::orderBy('id', 'ASC')->where('order_id',$order_id)->get();
+        $order = auth()->user()->orders()->with('orderItems')->FindOrfail($order_id);
 
         $data = [
-            'orderItems' => $orderItems,
+            'order' => $order,
         ];
 
         return view('orders.show', $data);
